@@ -2,9 +2,7 @@ package testing;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import modelo.Remera;
-import modelo.RemeraImportada;
-import modelo.RemeraNacional;
+import modelo.*;
 
 class Test {
 

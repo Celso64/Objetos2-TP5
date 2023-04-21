@@ -10,8 +10,18 @@ public class RemeraImportada extends Remera {
 	}
 
 	@Override
-	protected Double calcularRecargos() {
-		return super.precioUnitario * (1.0 + RECARGO) * (1.0 + IMPUESTO_ADUANERO) * (1.0 + GANANCIA);
+	protected Double calcularRecargo() {
+		return super.precioUnitario * RECARGO;
+	}
+
+	@Override
+	protected Double calcularCostosExtras() {
+		return super.precioUnitario * IMPUESTO_ADUANERO;
+	}
+
+	@Override
+	protected Double calcularGanancia() {
+		return super.precioUnitario * GANANCIA;
 	}
 
 }

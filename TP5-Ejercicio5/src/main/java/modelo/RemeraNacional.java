@@ -11,8 +11,18 @@ public class RemeraNacional extends Remera {
 	}
 
 	@Override
-	protected Double calcularRecargos() {
-		return super.precioUnitario * (1.0 + RECARGO_TRANSPORTE) * (1.0 + BONIFICACION) * (1.0 + GANANCIA);
+	protected Double calcularRecargo() {
+		return super.precioUnitario * RECARGO_TRANSPORTE;
+	}
+
+	@Override
+	protected Double calcularCostosExtras() {
+		return super.precioUnitario * BONIFICACION;
+	}
+
+	@Override
+	protected Double calcularGanancia() {
+		return super.precioUnitario * GANANCIA;
 	}
 
 }
