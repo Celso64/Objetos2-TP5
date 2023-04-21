@@ -8,17 +8,17 @@ public abstract class Remera {
 
 		Double costoTotal = precioUnitario;
 
-		costoTotal += calcularRecargo();
-		costoTotal += calcularCostosExtras();
-		costoTotal += calcularGanancia();
+		costoTotal += calcularRecargo(costoTotal);
+		costoTotal += calcularCostosExtras(costoTotal);
+		costoTotal += calcularGanancia(costoTotal);
 
 		return costoTotal;
 	}
 
-	protected abstract Double calcularRecargo();
+	protected abstract Double calcularRecargo(Double precio);
 
-	protected abstract Double calcularCostosExtras();
+	protected abstract Double calcularCostosExtras(Double precio);
 
-	protected abstract Double calcularGanancia();
+	protected abstract Double calcularGanancia(Double precio);
 
 }
