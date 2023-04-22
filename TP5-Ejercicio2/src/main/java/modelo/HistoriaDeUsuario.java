@@ -13,14 +13,10 @@ public class HistoriaDeUsuario implements Scrum {
 
     @Override
     public Integer calcularTiempoDeTrabajo() {
-
-	Integer tiempo = 0;
-
-	for (Scrum scrum : tareas) {
-	    tiempo += scrum.calcularTiempoDeTrabajo();
-	}
-
-	return tiempo;
+      
+	return tareas.stream()
+	             .mapToInt(Scrum::calcularTiempoDeTrabajo)
+	             .reduce(0, Integer::sum);
     }
 
     @Override

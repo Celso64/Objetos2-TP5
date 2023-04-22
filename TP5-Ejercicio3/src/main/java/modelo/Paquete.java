@@ -16,13 +16,9 @@ public class Paquete extends Seguro {
 	@Override
 	public Double calcularPrecio() {
 
-		Double costoTotal = 0.0;
-
-		for (Seguro seguro : seguros) {
-			costoTotal += seguro.calcularPrecio() * (1.0 - DESCUENTO_POR_UNIDAD);
-		}
-
-		return costoTotal;
+		return this.seguros.stream()
+		                   .mapToDouble(Seguro::calcularPrecio)
+		                   .reduce(0.0, (x,y) -> (x + y * (1.0 - DESCUENTO_POR_UNIDAD)));
 	}
 
 	@Override

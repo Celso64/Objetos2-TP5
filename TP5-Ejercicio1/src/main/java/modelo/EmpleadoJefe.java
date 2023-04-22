@@ -12,21 +12,12 @@ public class EmpleadoJefe extends Empleado {
     this.subalternos = new LinkedList<Empleado>();
   }
 
-
-
   @Override
   public Double calcularMonto() {
-
-    Double monto = this.sueldo;
-
-    for (Empleado empleado : subalternos) {
-      monto += empleado.calcularMonto();
-    }
-
-    return monto;
+    return this.subalternos.stream()
+                           .mapToDouble(Empleado::calcularMonto)
+                           .reduce(this.sueldo, Double::sum);
   }
-
-
 
   @Override
   public void agregarSubalterno(Empleado subalterno) {
